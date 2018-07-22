@@ -3,8 +3,9 @@ pipeline {
   stages {
     stage('build') {
       steps {
-        sh 'echo "checkout"'
-        archiveArtifacts(artifacts: 'package.json', fingerprint: true, onlyIfSuccessful: true, allowEmptyArchive: true)
+        sh '''echo "checkout"
+zip fibjs.org.zip ./*'''
+        archiveArtifacts(artifacts: 'fibjs.org.zip', fingerprint: true, onlyIfSuccessful: true, allowEmptyArchive: true)
       }
     }
   }
